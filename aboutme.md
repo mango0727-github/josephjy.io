@@ -1,10 +1,10 @@
 ---
 layout: page
-title: About me
-subtitle: Why you'd want to go on a date with me
+title: About Me
+subtitle: Cybersecurity Researcher
 ---
 
-Hi, my name is Joonyoung Jeong, here is my brief introduction:
+Hi, my name is Joonyoung Jeong. Here is my brief introduction:
 
 ### Education
 
@@ -19,7 +19,7 @@ My current research interest lies in computer system security, especially:
 - Software testing and vulnerability discovery
 - Network protocol security
 
-During my M.S. program, my research focused on wireless communication (physical layer) security, leading to my thesis titled _"covert authentication for securing MIMO communications."_ Following graduation, I began my new career at a government agency that had fully sponsored my tuition fee and stipend. The security I dealt with was a little different from my research area in the M.S., and the task was mentally and physically demanding. However, the security across different layers fascinated me so much that it motivated me to further delve into this field. 
+During my M.S. program, my research focused on wireless communication (physical layer) security, leading to my thesis titled _"Covert Authentication for Securing MIMO Communications."_ Following graduation, I began my new career at a government agency that had fully sponsored my tuition fee and stipend. The security I dealt with was a little different from my research area in the M.S., and the task was mentally and physically demanding. However, the security across different layers fascinated me so much that it motivated me to further delve into this field. 
 
 ### Research experience
 **Covert authentication for securing MIMO communications** supervised by Sang Kim, ISU
