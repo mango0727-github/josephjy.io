@@ -4,12 +4,17 @@ title: About me
 subtitle: Why you'd want to go on a date with me
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+Hi, my name is Joonyoung Jeong, here is my brief introduction:
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+### Education
 
-What else do you need?
+#### Iowa State University (ISU)
+M.S. in Electrical and Computer Engineering
+#### Korea Military Academy (KMA)
+B.E. in Mechanical Engineering
+
+### Research interest
+My current research interest lies on 
 
 ### My story
 
