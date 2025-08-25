@@ -5,6 +5,7 @@ subtitle: from initial assessment
 cover-img: /assets/img/path.jpg
 thumbnail-img: /assets/img/thumb.png
 share-img: /assets/img/path.jpg
+date: 2025-08-25 00:00:00 +0900
 tags: [cellular network]
 author: Joonyoung Jeong
 ---
