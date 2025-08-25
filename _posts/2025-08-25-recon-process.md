@@ -1,11 +1,11 @@
 ---
 layout: post
-title: SKT incident overview (from my prev. blog)
-subtitle: from initial assessment
+title: Useful Tools for Enum
+subtitle: dir enum, subdomain enum, is-live
 cover-img: /assets/img/path.jpg
 thumbnail-img: /assets/img/thumb.png
 share-img: /assets/img/path.jpg
-tags: [cellular network]
+tags: [Web hacking]
 author: Joonyoung Jeong
 ---
 
