@@ -33,19 +33,24 @@ For readers less familiar with mobile networks, let’s first review the LTE arc
 # LTE Network Components
 When you use a smartphone (User Equipment, UE) to access the internet (excluding voice calls), several nodes are involved:
 1. Evolved Node B (eNodeB): Base station
+
    This is the radio node that communicates with smartphones. Poor reception (“no signal”) usually means your device is too far from or obstructed from the nearest eNodeB.
    > The term "NodeB" comes from 3G. With 4G, it evolved to "eNodeB."
 2. Mobility Management Entity (MME)
+
    Handles initial connection and mobility management. For example:
    - When the smartphone is powered on, it sends an attach request via the eNodeB to the MME.
    - The MME checks the IMSI (International Mobile Subscriber Identity) and communicates with the HSS to authenticate.
    - It checks the device’s IMEI with the Equipment Identity Register (EIR) to detect stolen or swapped phones.
    - Once authenticated, the MME sets up a data session with the Serving Gateway (SGW).
    - The smartphone is then connected to the internet via the Packet Gateway (PGW).
+
    Mobility management means that when moving from area A to B, the MME coordinates handover between eNodeBs with support from the SGW.
 3. Serving Gateway (SGW)
+
    Forwards user packets between the eNodeB and the PGW, and manages data transfer during handovers.
 4. Packet Gateway (PGW)
+
    Acts as the bridge to external networks (internet), performing NAT (network address translation) to map subscriber traffic.
 
 # HSS with MME
