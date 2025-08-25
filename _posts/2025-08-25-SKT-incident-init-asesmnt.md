@@ -19,9 +19,9 @@ _Disclaimer: This blog post is based on 3GPP (3rd Generation Partnership Project
 > Since the case has already been widely reported in the media, I will use excerpts from news articles to summarize the incident.
 
 On April 18 at 11:20 p.m., SK Telecom’s security monitoring center detected abnormal data traffic and found malware implanted on its billing analysis equipment, along with evidence of deleted files. At 1:40 a.m. on April 19, SKT isolated the compromised device and began investigating the intrusion path and possible data leakage. Later, at 11:40 p.m. on April 19, suspicious signs of data leakage from the Home Subscriber Server (HSS) were confirmed. 
-<[!Source](https://www.khan.co.kr/article/202504291653021/?nv=stand&utm_source=naver&utm_medium=portal_news&utm_content=&utm_campaign=newsstandC)>
+<[Source](https://www.khan.co.kr/article/202504291653021/?nv=stand&utm_source=naver&utm_medium=portal_news&utm_content=&utm_campaign=newsstandC)>
 
-On April 22, SKT officially announced that malware infection had resulted in partial leakage of customers’ USIM information. On April 29, the Ministry of Science and ICT released preliminary investigation results, as shown [!here](https://www.msit.go.kr/bbs/view.do?sCode=user&mPid=208&mId=307&bbsSeqNo=94&nttSeqNo=3185757)
+On April 22, SKT officially announced that malware infection had resulted in partial leakage of customers’ USIM information. On April 29, the Ministry of Science and ICT released preliminary investigation results, as shown [here](https://www.msit.go.kr/bbs/view.do?sCode=user&mPid=208&mId=307&bbsSeqNo=94&nttSeqNo=3185757)
 
 # Function of the compromised Equipment
 According to SKT, the affected system was the Home Subscriber Server (HSS), a core server in 4G networks that authenticates user devices and manages subscriber information.
@@ -60,6 +60,7 @@ The HSS stores essential subscriber data, including:
 | Subscription Status | Activation of voice/data services               |
 | IMS Data            | Public/Private IDs, IMS registration            |
 | Roaming Info        | Allowed roaming regions, restrictions           |
+|---------------------|------------------------------------------------|
 Key points:
 - IMSI: Unique subscriber identifier, not normally visible to users.
 - Ki: A 128-bit secret key stored in the SIM and HSS, used for authentication. Both network and device compute results using Ki, and the MME verifies if they match.
