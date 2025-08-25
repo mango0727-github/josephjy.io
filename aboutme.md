@@ -22,7 +22,7 @@ My current research interest lies in computer system security, especially:
 During my M.S. program, my research focused on wireless communication (physical layer) security, leading to my thesis titled _"Covert Authentication for Securing MIMO Communications."_ Following graduation, I began my new career at a government agency that had fully sponsored my tuition fee and stipend. The security I dealt with was a little different from my research area in the M.S., and the work was both mentally and physically demanding. However, the security across different layers fascinated me so much that it motivated me to further delve into wireless security but at higher layers. 
 
 ### Publication
-![Covert authentication for securing MIMO communications](https://dr.lib.iastate.edu/server/api/core/bitstreams/d0ca9bbb-4436-4681-97b7-c97fa3a4ec05/content) supervised by Sang Kim, ISU
+[Covert authentication for securing MIMO communications](https://dr.lib.iastate.edu/server/api/core/bitstreams/d0ca9bbb-4436-4681-97b7-c97fa3a4ec05/content) supervised by Sang Kim, ISU
 
 ### Teaching experience
 I am currently working as a lecturer at the Korea Military Academy, teaching _Introduction to Statistics_ and _Introduction to Data Mining_. 
