@@ -65,7 +65,7 @@ The HSS stores essential subscriber data, including:
 | Subscription Status | Activation of voice/data services               |
 | IMS Data            | Public/Private IDs, IMS registration            |
 | Roaming Info        | Allowed roaming regions, restrictions           |
-|---------------------|------------------------------------------------|
+
 Key points:
 - IMSI: Unique subscriber identifier, not normally visible to users.
 - Ki: A 128-bit secret key stored in the SIM and HSS, used for authentication. Both network and device compute results using Ki, and the MME verifies if they match.
