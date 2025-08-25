@@ -1,12 +1,27 @@
+---
+layout: post
+title: SKT incident overview (from my prev. blog)
+subtitle: from initial assessment
+cover-img: /assets/img/path.jpg
+thumbnail-img: /assets/img/thumb.png
+share-img: /assets/img/path.jpg
+tags: [cellular network]
+author: Joonyoung Jeong
+---
+
+
 # Recon Process
 
 ## Directory Enumeration Tools
 
 ### ffuf
 
-ffuf는 word list를 바탕으로 도메인에 속한 Directory를 퍼징해주는 툴이다. HTTP 요청을 보내고 응답 메세지에 따라 결과를 분류한다.
+`ffuf` is a tool that fuzzes directory under a certain domain based on a wordlist
 
-- -w 를 통해 Wordlist를 지정한다.
+
+`ffuf` is a directory fuzzing tool that uses a wordlist to discover hidden paths on a target domain. It sends HTTP requests and classifies results based on the response.
+
+- `-w`: pick your wordlist  
     
     ```bash
     ┌──(kali㉿kali)-[~/bb-course/bugbounty]
@@ -15,67 +30,68 @@ ffuf는 word list를 바탕으로 도메인에 속한 Directory를 퍼징해주�
     apache-user-enum-2.0.txt  directory-list-1.0.txt  directory-list-2.3-small.txt   directory-list-lowercase-2.3-small.txt
     ```
     
-- `-u` 를 통해 타겟 URL를 지정하고 퍼징할 부분을 FUZZ로 표시한다.
-- `-H` 를 통해 HTTP 요청 헤더 내용을 추가할 수 있다.
-- `-rate` 을 통해 초당 요청 속도를 조절 가능.
-- `-t` 를 통해 동시에 요청하는 Thread 숫자 지정가능.
-- `—recursive` 와 `—recursion-depth` 로 recursive하게 탐색가
+- `-u`: set the target URL, replace the fuzzing spot with `FUZZ`  
+- `-H`: add HTTP headers  
+- `-rate`: control requests per second  
+- `-t`: number of threads  
+- `--recursive` & `--recursion-depth`: explore subdirectories automatically  
 
-따라서 Rule of Engagement를 준수하여, 다음과 같이 ffuf를 사용할 수 있다. 여기서 Cookie는 로그인이 필요한 퍼징을 할 때에 나의 계정 로그인 후 생성되는 Cookie를 넣으면 되겠다.
+**Example**:  
 
 ```bash
 ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt \
      -u https://t-mobile.com/FUZZ \
      -H "X-Bug-Bounty:BugCrowd-Joseph_djy" \
      -H "Cookie: sessionid=your_session_cookie_here;" \
-     -rate 5
+     -rate 5 \
      -t 1
 ```
+
 
 ## Subdomain Enumeration
 
 ### subfinder
 
-subfinder는 패시브한 서브도메인 수집 툴임. 따라서 타겟 URL에 요청 메시지를 전송하지는 않고, OSINT를 기반으로 정보를 수집하여 제공해줌.
+Passive subdomain finder (OSINT-based, no requests sent to the target).
 
-| 분류 | 설명 |
+| Type | Explain |
 | --- | --- |
-| **입력 옵션** | `-d` 단일 도메인 / `-dL` 다중 도메인 파일 입력 |
-| **소스 설정** | `-s` 특정 소스 선택 / `-all` 모든 소스 사용 / `-es` 제외 소스 설정 |
-| **재귀 옵션** | `-recursive`로 `sub.sub.example.com`까지 추적 (가능한 소스에 한함) |
-| **속도 조절** | `-rl` 요청 속도 제한 / `-t` 동시 처리 스레드 수 설정 |
-| **필터링** | `-m`, `-f` 서브도메인 정규식 매칭 및 필터링 |
-| **출력 포맷** | `-o` 일반 출력 / `-oJ` JSONL / `-oI` IP 포함 / `-oD` 디렉토리 지정 |
-| **구성 파일** | `-config` 메인 설정 / `-pc` API provider 설정 (Shodan, Censys 등) |
-| **디버그/최적화** | `-v` verbose / `-silent` 최소 출력 / `-ls` 전체 소스 리스트 출력 |
+| **Input option** | `-d` 단일 도메인 / `-dL` 다중 도메인 파일 입력 |
+| **Source setting** | `-s` 특정 소스 선택 / `-all` 모든 소스 사용 / `-es` 제외 소스 설정 |
+| **Recursive option** | `-recursive`로 `sub.sub.example.com`까지 추적 (가능한 소스에 한함) |
+| **Speed** | `-rl` 요청 속도 제한 / `-t` 동시 처리 스레드 수 설정 |
+| **Filtering** | `-m`, `-f` 서브도메인 정규식 매칭 및 필터링 |
+| **Output format** | `-o` 일반 출력 / `-oJ` JSONL / `-oI` IP 포함 / `-oD` 디렉토리 지정 |
+| **Config file** | `-config` 메인 설정 / `-pc` API provider 설정 (Shodan, Censys 등) |
+| **Debug** | `-v` verbose / `-silent` 최소 출력 / `-ls` 전체 소스 리스트 출력 |
 
 ### assetfinder
 
-tomnomnom이 작성한 패시브 수집툴로 깃허브에서 설치가능
+Built by tomnomnom — super quick passive tool.
 
 ### amass
 
-Amass는 OWASP(Open Web Application Security Project)에서 만든 오픈소스 툴로, 서브도메인 수집, 액티브/패시브 정보 수집, DNS 브루트포싱, 서브넷 매핑, ASN 데이터 수집, 그래프 분석 등을 모두 지원하는 올인원 리콘 플랫폼임.
+Big recon framework from OWASP(Open Web Application Security Project) — does passive, active, brute forcing, ASN/Net collection, and even graph DB visualization.
 
-| 기능 | 설명 |
+| Functionality | Explain |
 | --- | --- |
-|  Passive 수집 | 패시브 소스로부터 서브도메인 수집  |
-|  Active 수집 | DNS 레졸빙을 통한 액티브 탐지 |
+|  Passive collection | 패시브 소스로부터 서브도메인 수집  |
+|  Active collection | DNS 레졸빙을 통한 액티브 탐지 |
 |  Brute Forcing | 워드리스트를 통한 서브도메인 강제열거 |
-|  Recursive 탐색 | 하위 도메인에 대한 재탐색 수행 |
-|  ASN & IP 수집 | ASN, IP range 기반 네트워크 수집 |
+|  Recursive search | 하위 도메인에 대한 재탐색 수행 |
+|  ASN & IP collection | ASN, IP range 기반 네트워크 수집 |
 |  Graph DB | 서브도메인 관계를 네오4j 또는 Graphviz로 시각화 가능 |
 |  통합 기능 | `enum`, `intel`, `track`, `viz`, `db` 등 서브 명령 제공 |
 
-### 비교
+### Comparison
 
 | 구분 | assetfinder | subfinder | amass |
 | --- | --- | --- | --- |
-| 수집 방식 | Passive only | Passive/Active | Passive/Active/Brute |
-| 속도 | 매우 빠름 | 빠름 | 느림 (정확도 높음) |
-| 정확도 | 낮음~중간 | 중간~높음 | 매우 높음 |
+| Collection type | Passive only | Passive/Active | Passive/Active/Brute |
+| Speed | 매우 빠름 | 빠름 | 느림 (정확도 높음) |
+| Accuracy | 낮음~중간 | 중간~높음 | 매우 높음 |
 
-### 사용 팁
+### Tips
 
 필요에 따른 툴을 활용하여 output 파일 생성 후 `grep t-mobile | sort -u` 등으로 중복제거 후 httprobe를 통해 실제로 http 혹은 https 서비스를 제공하는지 확인한다. 이후 gowitness로 웹사이트가 실제로 서비스를 제공하는지 스크린샷 및 저장하여 자동화할 수 있다.
 
