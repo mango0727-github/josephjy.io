@@ -65,6 +65,7 @@ The HSS stores essential subscriber data, including:
 | Subscription Status | Activation of voice/data services               |
 | IMS Data            | Public/Private IDs, IMS registration            |
 | Roaming Info        | Allowed roaming regions, restrictions           |
+|----------------------------------------------------------------------|
 
 Key points:
 - IMSI: Unique subscriber identifier, not normally visible to users.
@@ -78,6 +79,7 @@ The difference between IMSI and IMEI:
 |---------------------|------------------------------------------------|
 |IMSI |	Used by the carrier (SKT) to identify the subscriber (e.g., Joon) |
 | IMEI	| Used by the carrier to identify the device (e.g., Joon’s iPhone 15 Pro) |
+|---------------------|------------------------------------------------|
 
 The ICCID uniquely identifies the SIM card itself. Together with MSISDN, IMSI, and Ki, attackers have the necessary information to clone SIM cards.
 
