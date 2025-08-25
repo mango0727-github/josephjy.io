@@ -23,4 +23,5 @@ For further detailed contents of the report, please refer [here](https://www.msi
    According to the final report, the attacker firstly compromised the system management subnet that was for maintenance and operation. The committee suggested possible attack scenarios that include:
    - **Exploiting vulnerability in VPN devices:** Taiwan cybersecurity company, TeamT5, said CVE regarding Ivanti VPN product might have been exploited to access the system management subnet.
      > There is no clear evidence that SKT was using Ivanti VPN products to operate their servers. However TeamT5 revealed that "Since April 2025, multiple devices have been compromised, where Ivanti VPN devices are used for the attack"
+     
      SKT has not clearly identified that it was using Ivanti VPN products for their 4G/5G architecture. Yet, the first anomaly behavior was detected by SKT incident response team in April 18 and it was from a linux server for fee analysis that was located in the middle of the VPN route connecting to internet. 
