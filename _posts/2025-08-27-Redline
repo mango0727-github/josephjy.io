@@ -53,7 +53,7 @@ Figure 5. dnSpy decompilation result of the original file (encryption routine)
 
 However, the encryption is not a problem because if you look at the Main() code, you can see that even if it is encrypted, the files are dropped after decryption, and the drop files are executed using Process.Start(text), i.e., code injection.
 
-![Figure 6. Decompilation result of original file on dnSpy (file drop and execution routine)](image%205.png)
+![Figure 6. Decompilation result of original file on dnSpy (file drop and execution routine)](assets/img/redline/image%205.png)
 
 Figure 6. Decompilation result of original file on dnSpy (file drop and execution routine)
 
